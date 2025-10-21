@@ -1,0 +1,37 @@
+{
+  "name": "autofi-nexus-contracts",
+  "version": "1.0.0",
+  "description": "AutoFi-Nexus Smart Contracts - Automated DeFi Vault Management",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:local": "hardhat run scripts/deploy_local.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy_testnet.js --network sepolia",
+    "deploy:polygon": "hardhat run scripts/deploy_testnet.js --network polygon",
+    "verify:sepolia": "hardhat verify --network sepolia",
+    "verify:polygon": "hardhat verify --network polygon",
+    "node": "hardhat node",
+    "coverage": "hardhat coverage",
+    "gas-report": "REPORT_GAS=true hardhat test"
+  },
+  "keywords": [
+    "defi",
+    "vault",
+    "automation",
+    "ethereum",
+    "polygon"
+  ],
+  "author": "AutoFi-Nexus Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "hardhat": "^2.19.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.0"
+  }
+}

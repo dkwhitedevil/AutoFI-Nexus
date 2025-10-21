@@ -1,0 +1,33 @@
+/*
+ * Tailwind CSS IntelliSense Helper
+ * This file helps IDEs understand Tailwind CSS directives
+ * It's not imported anywhere, just for IDE support
+ */
+
+/* 
+ * These directives are processed by PostCSS + Tailwind
+ * They inject base styles, component classes, and utilities
+ */
+
+/* stylelint-disable at-rule-no-unknown */
+/* Base styles reset and normalize */
+/* @tailwind base; */
+
+/* Component classes and custom utilities */
+/* @tailwind components; */
+
+/* All utility classes */
+/* @tailwind utilities; */
+
+/* Custom layer definitions */
+/* @layer base {} */
+/* @layer components {} */
+/* @layer utilities {} */
+
+/* Example @apply usage */
+/*
+.example-class {
+  @apply text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800;
+}
+*/
+/* stylelint-enable at-rule-no-unknown */

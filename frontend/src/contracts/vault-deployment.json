@@ -1,0 +1,14 @@
+{
+  "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "network": "localhost",
+  "deployedAt": "2025-10-19T09:16:04.175Z",
+  "abi": [
+    "function deposit() external payable",
+    "function withdraw(uint256 amount) external",
+    "function getBalance(address user) external view returns (uint256)",
+    "function getTotalBalance() external view returns (uint256)",
+    "function emergencyWithdraw() external",
+    "event Deposit(address indexed user, uint256 amount, uint256 timestamp)",
+    "event Withdraw(address indexed user, uint256 amount, uint256 timestamp)"
+  ]
+}

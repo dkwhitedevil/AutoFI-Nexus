@@ -1,0 +1,35 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_19-9a84b9409d26dfab035bb9b3757e0c2e0a531097",
+  "solcVersion": "0.8.19",
+  "solcLongVersion": "0.8.19+commit.7dd6d404",
+  "userSourceNameMap": {
+    "contracts/Vault.sol": "project/contracts/Vault.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "paris",
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/Vault.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\n/**\n * @title AutoFi Nexus Vault\n * @dev A simple vault contract for depositing and withdrawing ETH\n * Features: Deposits, Withdrawals, Balance tracking, Event emissions\n */\ncontract Vault {\n    // Mapping to track user balances\n    mapping(address => uint256) public balances;\n    \n    // Total ETH stored in the vault\n    uint256 public totalDeposits;\n    \n    // Events for tracking transactions\n    event Deposit(address indexed user, uint256 amount, uint256 timestamp);\n    event Withdraw(address indexed user, uint256 amount, uint256 timestamp);\n    \n    /**\n     * @dev Deposit ETH to the Vault\n     * Emits a Deposit event\n     */\n    function deposit() external payable {\n        require(msg.value > 0, \"Must deposit ETH\");\n        \n        balances[msg.sender] += msg.value;\n        totalDeposits += msg.value;\n        \n        emit Deposit(msg.sender, msg.value, block.timestamp);\n    }\n    \n    /**\n     * @dev Withdraw ETH from the Vault\n     * @param amount Amount of ETH to withdraw (in wei)\n     * Emits a Withdraw event\n     */\n    function withdraw(uint256 amount) external {\n        require(amount > 0, \"Amount must be greater than 0\");\n        require(balances[msg.sender] >= amount, \"Insufficient balance\");\n        \n        balances[msg.sender] -= amount;\n        totalDeposits -= amount;\n        \n        // Transfer ETH to user\n        (bool success, ) = payable(msg.sender).call{value: amount}(\"\");\n        require(success, \"Transfer failed\");\n        \n        emit Withdraw(msg.sender, amount, block.timestamp);\n    }\n    \n    /**\n     * @dev Get user balance in the vault\n     * @param user Address of the user\n     * @return User's balance in wei\n     */\n    function getBalance(address user) external view returns (uint256) {\n        return balances[user];\n    }\n    \n    /**\n     * @dev Get total contract balance\n     * @return Total ETH in the contract\n     */\n    function getTotalBalance() external view returns (uint256) {\n        return address(this).balance;\n    }\n    \n    /**\n     * @dev Emergency withdraw all funds (only for owner - simplified version)\n     * In production, you'd want proper access control\n     */\n    function emergencyWithdraw() external {\n        uint256 userBalance = balances[msg.sender];\n        require(userBalance > 0, \"No balance to withdraw\");\n        \n        balances[msg.sender] = 0;\n        totalDeposits -= userBalance;\n        \n        (bool success, ) = payable(msg.sender).call{value: userBalance}(\"\");\n        require(success, \"Transfer failed\");\n        \n        emit Withdraw(msg.sender, userBalance, block.timestamp);\n    }\n}\n"
+      }
+    }
+  }
+}
