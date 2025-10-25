@@ -1,0 +1,11 @@
+.exit
+const [owner] = await ethers.getSigners();
+const autoFi = await ethers.getContractAt("AutoFiC);
+const [owner] = await ethers.getSigners();
+await owner.sendTransaction({  to: "0x903ADa9d4Ef17B218d95a74DfFe9B18E5C61716B",  value: ethers.parse
+const [owner] = await ethers.getSigners();
+const balance = await ethers.provider.getBalance("0x903ADa9d4Ef17B218d95a74DfFe9B18E5C61716B");
+});
+    value: ethers.parseEther("1")  // sending 1 ETH
+await o    to: "0x903ADa9d4Ef17B218d95a74DfFe9B18E5C61716B",
+const [owner] = await ethers.getSigners();
