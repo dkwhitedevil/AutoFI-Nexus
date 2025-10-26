@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Projects\\AutoFI-Nexus\\contracts\\AutoFiCore.sol": {
-      "lastModificationDate": 1761296901661,
-      "contentHash": "141bc0c7a441c8f87f744b90889449c9",
+      "lastModificationDate": 1761375206031,
+      "contentHash": "6182b982d1a204d8de5eb4d62eda98cb",
       "sourceName": "contracts/AutoFiCore.sol",
       "solcConfig": {
         "version": "0.8.20",

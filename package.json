@@ -11,15 +11,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "dotenv": "^17.2.3",
+    "ethers": "^5.7.2",
     "hardhat": "^2.26.3"
   },
   "dependencies": {
     "@avail-project/nexus-core": "^0.0.2",
     "@avail-project/nexus-widgets": "^0.0.6",
+    "@lit-protocol/lit-node-client": "^7.3.1",
+    "@lit-protocol/vincent-ability-erc20-approval": "^3.1.4",
+    "@lit-protocol/vincent-ability-uniswap-swap": "^8.0.0",
+    "@lit-protocol/vincent-app-sdk": "^2.2.3",
+    "@lit-protocol/vincent-contracts-sdk": "^2.0.0",
     "@openzeppelin/contracts": "^4.9.6",
-    "axios": "^1.12.2",
-    "ethers": "^6.15.0"
+    "axios": "^1.12.2"
   }
 }

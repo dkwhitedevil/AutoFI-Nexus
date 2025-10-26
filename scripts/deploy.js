@@ -1,20 +1,11 @@
-import pkg from "hardhat";
-const { ethers } = pkg;
+import hardhat from "hardhat";
+const { ethers } = hardhat;
 
-async function main() {
-  const [deployer] = await ethers.getSigners();
-  console.log("Deploying with:", deployer.address);
+const [deployer] = await ethers.getSigners();
+console.log("Deploying with:", deployer.address);
 
-  const AutoFiCore = await ethers.getContractFactory("AutoFiCore");
- const contract = await AutoFiCore.deploy();
+const AutoFiCore = await ethers.getContractFactory("AutoFiCore");
+const contract = await AutoFiCore.deploy();
+await contract.deployed();
 
-  await contract.waitForDeployment();
-
-  console.log("✅ AutoFiCore deployed to:", await contract.getAddress());
-  console.log("Owner:", await contract.owner());
-}
-
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+console.log("✅ AutoFiCore deployed to:", contract.address);
